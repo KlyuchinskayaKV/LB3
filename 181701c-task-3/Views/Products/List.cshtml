@@ -1,0 +1,42 @@
+﻿@model IEnumerable<_181701c_task_3.Models.Product>
+
+@{
+    ViewData["Title"] = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Список товаров</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Идентификатор</th>
+            <th>Название</th>
+            <th>Стоимость</th>
+            <th>Описание</th>
+            <th>Возможности</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(item => product.Id)
+                </td>
+                <td>
+                   @Html.DisplayFor(item => product.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(item => product.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(item => product.Description)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id=@product.Id>Подробнее</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
